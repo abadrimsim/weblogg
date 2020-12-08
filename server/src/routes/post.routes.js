@@ -6,13 +6,14 @@ const {
 	updatePost,
 	deletePost,
 } = require('../controllers/post.controller');
+const { auth } = require('../middleware/auth');
 
-router.get('/posts', getPosts);
-router.get('/posts/:slug', getPostBySlug);
+router.get('/', getPosts);
+router.get('/:slug', getPostBySlug);
 
 // Authenticated User
-router.post('/new/post', createPost);
-router.put('/update/post/:id', updatePost);
-router.delete('/delete/post/:id', deletePost);
+router.post('/create', auth, createPost);
+router.put('/update/:id', auth, updatePost);
+router.delete('/delete/:id', auth, deletePost);
 
 module.exports = router;

@@ -1,0 +1,42 @@
+@import '../../fonts/fonts.css';
+
+.custom-card {
+	max-width: 40vw;
+	height: 50vh;
+}
+
+.card-body {
+	padding: 34px 42px 12px;
+}
+
+.card-title {
+	color: #000000 !important;
+	font-family: 'Oswald', sans-serif;
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	margin: 0 0 26px;
+}
+
+.card-category {
+	color: #58bcb3;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 0.7rem;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.card-text,
+.card-footer {
+	color: #8d8c8c !important;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.8rem !important;
+	margin: 0 0 30px;
+}
+
+.card-footer {
+	background-color: #ffffff;
+	height: 1rem;
+	position: relative;
+	bottom: 0;
+	display: flex;
+}

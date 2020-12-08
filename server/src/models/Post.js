@@ -42,6 +42,7 @@ const postSchema = new Schema(
 	}
 );
 
+// Serial middleware
 postSchema.pre('validate', function (next) {
 	const post = this;
 
