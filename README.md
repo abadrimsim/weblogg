@@ -1,5 +1,6 @@
 # Weblogg
-## Simple Blog Website using MERN Stack
+
+## A Simple Blog Website using MERN Stack
 
 
 
