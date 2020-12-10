@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Posts from '../../components/Posts/Posts';
+import Posts from '../components/Posts/Posts';
+import Loader from '../components/Loader/Loader';
 
 const HomeScreen = () => {
 	const [posts, setPosts] = useState([]);
+
 	const url = 'http://localhost:5000/api/post';
 
 	useEffect(() => {
@@ -21,7 +23,7 @@ const HomeScreen = () => {
 
 	const renderPost = () => {
 		if (posts.length === 0) {
-			return <i className='gg-spinner-two'></i>;
+			return <Loader />;
 		} else {
 			return posts.map((post) => (
 				<Posts
@@ -36,7 +38,7 @@ const HomeScreen = () => {
 		}
 	};
 
-	return <div>{renderPost()}</div>;
+	return <>{renderPost()}</>;
 };
 
 export default HomeScreen;

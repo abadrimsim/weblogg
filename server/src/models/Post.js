@@ -1,9 +1,14 @@
 const { Schema, model } = require('mongoose');
 const slugify = require('slugify');
+const defaultImage =
+	'https://www.technipages.com/wp-content/plugins/accelerated-mobile-pages/images/SD-default-image.png';
 
 const postSchema = new Schema(
 	{
-		image: String,
+		image: {
+			type: String,
+			default: defaultImage,
+		},
 		category: {
 			type: String,
 			required: true,

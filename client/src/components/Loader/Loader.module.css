@@ -1,0 +1,8 @@
+.customSpinner {
+	width: 5rem;
+	height: 5rem;
+	margin: auto;
+	display: block;
+	border-width: 1rem;
+	color: #46b7b9 !important;
+}

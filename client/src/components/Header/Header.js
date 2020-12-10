@@ -20,20 +20,24 @@ const Header = () => {
 								<Nav.Link>About</Nav.Link>
 							</LinkContainer>
 
-							<NavDropdown title='Category' id='basic-nav-dropdown'>
+							<LinkContainer to='/about'>
+								<Nav.Link>Contact</Nav.Link>
+							</LinkContainer>
+
+							<NavDropdown title='Categories' id='basic-nav-dropdown'>
 								<NavDropdown.Item>Technology</NavDropdown.Item>
 								<NavDropdown.Item>Travel</NavDropdown.Item>
 								<NavDropdown.Item>Lifestyle</NavDropdown.Item>
 							</NavDropdown>
 						</Nav>
 						<Nav>
-							<Nav.Link href='#login'>Log in</Nav.Link>
-							<Nav.Link href='#register'>Register</Nav.Link>
+							<LinkContainer to='/signup'>
+								<Nav.Link>Sign in</Nav.Link>
+							</LinkContainer>
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>
-			<h1 className='custom-header'>WEBLOGG</h1>
 		</header>
 	);
 };

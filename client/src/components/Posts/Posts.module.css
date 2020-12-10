@@ -1,0 +1,60 @@
+@import '../../fonts/fonts.css';
+
+.button {
+	color: #fcfefe;
+	background-color: #46b7b9;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 0.7rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	border-radius: 0;
+	padding: 0.6rem 1rem;
+	border: none;
+	margin-bottom: 1.5rem;
+}
+
+.button:hover {
+	background-color: #3ba1a3;
+}
+
+.customCard {
+	width: 65%;
+	margin: 1.5rem;
+	box-shadow: 0px 3px 8px #e6e6e6;
+}
+
+.cardBody {
+	padding: 34px 42px 12px;
+}
+
+.cardTitle {
+	color: #3a3a3a !important;
+	font-family: 'Oswald', sans-serif;
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	margin: 0 0 26px;
+}
+
+.cardCategory {
+	color: #46b7b9;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 0.7rem;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.cardText,
+.cardFooter {
+	color: #969696 !important;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.8rem !important;
+	margin: 0 0 30px;
+}
+
+.cardFooter {
+	background-color: #fcfefe;
+	height: 1rem;
+	text-transform: uppercase;
+	bottom: 0;
+	display: flex;
+}

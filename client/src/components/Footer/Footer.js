@@ -1,11 +1,13 @@
 import React from 'react';
-import './Footer.css';
+import styles from './Footer.module.css';
 
 const Footer = () => {
 	const year = new Date().getFullYear();
 	return (
-		<footer>
-			<p>&copy; {year} Copyright Angel Adrimsim | All Rights Reserved.</p>
+		<footer className={styles.customFooter}>
+			<p className={styles.customText}>
+				&copy; {year} Copyright Angel Adrimsim | All Rights Reserved.
+			</p>
 		</footer>
 	);
 };
