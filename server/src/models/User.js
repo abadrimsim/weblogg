@@ -38,64 +38,24 @@ const userSchema = new Schema(
 			required: true,
 			default: false,
 		},
-		tokens: [
-			{
-				token: {
-					type: String,
-					require: true,
-				},
-			},
-		],
 	},
 	{
 		timestamps: true,
 	}
 );
 
-// Mongoose Static Function
-userSchema.statics.findByCredentials = async (email, password) => {
-	const user = await User.findOne({ email });
-
-	if (user) {
-		const isMatch = await bcrypt.compare(password, user.password);
-		if (isMatch) {
-			return user;
-		} else {
-			throw new Error('Unable to login.');
-		}
-	} else {
-		throw new Error({ error: 'Unable to login.' });
-	}
+userSchema.methods.matchPassword = async function (enteredPassword) {
+	return await bcrypt.compare(enteredPassword, this.password);
 };
 
-// Instance Method for password encryption
-userSchema.methods.encryptPassword = async (password) => {
-	return await bcrypt.hash(password, 8);
-};
-
-// Instance Method to generate an auth token
-userSchema.methods.generateAuthToken = async function () {
-	const user = this;
-
-	const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET);
-
-	user.tokens = user.tokens.concat({ token });
-
-	try {
-		await user.save();
-	} catch (error) {
-		throw new Error(error);
+userSchema.pre('save', async function (next) {
+	if (!this.isModified('password')) {
+		next();
 	}
 
-	return token;
-};
-
-userSchema.methods.toJSON = function () {
-	const user = this;
-	const userObject = user.toObject();
-
-	return userObject.tokens;
-};
+	const salt = await bcrypt.genSalt(10);
+	this.password = await bcrypt.hash(this.password, salt);
+});
 
 const User = model('User', userSchema);
 

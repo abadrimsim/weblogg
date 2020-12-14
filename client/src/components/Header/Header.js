@@ -31,7 +31,7 @@ const Header = () => {
 							</NavDropdown>
 						</Nav>
 						<Nav>
-							<LinkContainer to='/signup'>
+							<LinkContainer to='/register'>
 								<Nav.Link>Sign in</Nav.Link>
 							</LinkContainer>
 						</Nav>

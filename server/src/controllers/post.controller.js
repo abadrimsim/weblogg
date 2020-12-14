@@ -1,8 +1,6 @@
 const Post = require('../models/Post');
 
-const PostController = {};
-
-PostController.getPosts = async (req, res) => {
+const getPosts = async (req, res) => {
 	try {
 		const posts = await Post.find();
 
@@ -12,52 +10,83 @@ PostController.getPosts = async (req, res) => {
 			res.status(404).json({ error: 'Posts not found.' });
 		}
 	} catch (error) {
-		// Internal Server Error
 		res.status(500).json({ message: error.message });
 	}
 };
 
-PostController.getPostBySlug = async (req, res) => {
+const getPostBySlug = async (req, res) => {
+	const postSlug = req.params.slug;
+
 	try {
-		const post = await Post.findOne({ slug: req.params.slug });
+		const post = await Post.findOne({ slug: postSlug });
 		res.status(200).send(post);
 	} catch (error) {
 		res.status(404).json({ error: 'Post not found.' });
 	}
 };
 
-PostController.createPost = async (req, res) => {
-	const newPost = new Post(req.body);
+const createPost = async (req, res) => {
+	const post = req.body;
+	const newPost = new Post({ post, author: req.user.fullName });
 
 	try {
 		await newPost.save();
-		// Created successfully
 		res.status(201).send({ message: 'New post added!' });
 	} catch (error) {
 		res.status(500).json({ message: error.message });
 	}
 };
 
-PostController.updatePost = async (req, res) => {
-	const { image, category, title, body } = req.body;
+const updatePost = async (req, res) => {
+	const id = req.params.id;
+	const post = req.body;
+
 	try {
-		await Post.findOneAndUpdate(
-			{ _id: req.params.id },
-			{ image, category, title, body }
-		);
+		await Post.findByIdAndUpdate(id, post);
 		res.status(200).send({ message: 'Post updated successfully!' });
 	} catch (error) {
 		res.status(500).json({ message: error.message });
 	}
 };
 
-PostController.deletePost = async (req, res) => {
+const deletePost = async (req, res) => {
+	const id = req.params.id;
+
 	try {
-		await Post.findOneAndDelete({ _id: req.params.id });
+		await Post.findByIdAndDelete(id);
 		res.status(200).send({ message: 'Successfully deleted post!' });
 	} catch (error) {
 		res.status(500).json({ message: error.message });
 	}
 };
 
-module.exports = PostController;
+const createComment = async (req, res) => {
+	const userComment = req.body;
+
+	try {
+		const post = await Post.findById(req.params.id);
+
+		if (post) {
+			const comment = {
+				fullName: req.user.fullName,
+				userComment,
+				user: req.user.id,
+			};
+
+			post.comments.push(comment);
+			await post.save();
+			res.status(201).json({ message: 'Comment added' });
+		}
+	} catch (error) {
+		res.status(404).json({ error: 'Post not found.' });
+	}
+};
+
+module.exports = {
+	getPosts,
+	getPostBySlug,
+	createPost,
+	updatePost,
+	deletePost,
+	createComment,
+};

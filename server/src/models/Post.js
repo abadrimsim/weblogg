@@ -3,6 +3,25 @@ const slugify = require('slugify');
 const defaultImage =
 	'https://www.technipages.com/wp-content/plugins/accelerated-mobile-pages/images/SD-default-image.png';
 
+const commentSchema = new Schema(
+	{
+		fullName: {
+			type: String,
+			required: true,
+		},
+		comment: {
+			type: String,
+			required: true,
+		},
+		user: {
+			type: Schema.Types.ObjectId,
+			required: true,
+			ref: 'User',
+		},
+	},
+	{ timestamps: true }
+);
+
 const postSchema = new Schema(
 	{
 		image: {
@@ -18,6 +37,11 @@ const postSchema = new Schema(
 			required: true,
 		},
 		author: {
+			type: Schema.Types.ObjectId,
+			required: true,
+			ref: 'Author',
+		},
+		content: {
 			type: String,
 			required: true,
 		},
@@ -25,7 +49,6 @@ const postSchema = new Schema(
 			type: Date,
 			default: Date.now,
 		},
-		body: Object,
 		slug: {
 			type: String,
 			required: true,
@@ -35,19 +58,13 @@ const postSchema = new Schema(
 			type: Number,
 			default: 0,
 		},
-		comments: [
-			{
-				name: String,
-				message: String,
-			},
-		],
+		comments: [commentSchema],
 	},
 	{
 		timestamps: true,
 	}
 );
 
-// Serial middleware
 postSchema.pre('validate', function (next) {
 	const post = this;
 

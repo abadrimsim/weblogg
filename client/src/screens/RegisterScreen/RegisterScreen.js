@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import FormContainer from '../../components/FormContainer/FormContainer';
-import styles from './SignUpScreen.module.css';
+import styles from './RegisterScreen.module.css';
 import axios from 'axios';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,15 +12,16 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 const eye = <FontAwesomeIcon icon={faEye} />;
 const eyeSlash = <FontAwesomeIcon icon={faEyeSlash} />;
 
-const SignUpScreen = () => {
+const RegisterScreen = () => {
+	let history = useHistory();
+	const url = 'http://localhost:5000/api/user/register';
+
 	const [passwordShown, setPasswordShown] = useState(false);
-	const [userSignUp, setUserSignUp] = useState({
+	const [registerUser, setRegisterUser] = useState({
 		fullName: '',
 		email: '',
 		password: '',
 	});
-
-	const url = 'http://localhost:5000/api/user/signup';
 
 	const togglePasswordVisibility = () => {
 		setPasswordShown(passwordShown ? false : true);
@@ -26,15 +29,25 @@ const SignUpScreen = () => {
 
 	const handleInputChange = (e) => {
 		const { name, value } = e.target;
-		setUserSignUp({ ...userSignUp, [name]: value });
+		setRegisterUser({ ...registerUser, [name]: value });
 	};
 
 	const submitHandler = async (e) => {
 		e.preventDefault();
 
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		};
+
 		try {
-			const res = await axios.post(url, userSignUp);
-			sessionStorage.setItem('token', res.data.token);
+			const res = await axios.post(url, registerUser, config);
+			localStorage.setItem('token', res.data.token);
+
+			if (localStorage.token) {
+				history.push('/');
+			}
 		} catch (error) {
 			console.log({ error: error });
 		}
@@ -52,7 +65,7 @@ const SignUpScreen = () => {
 						type='text'
 						placeholder='Full Name'
 						name='fullName'
-						value={userSignUp.fullName}
+						value={registerUser.fullName}
 						onChange={handleInputChange}
 						required
 					></Form.Control>
@@ -64,7 +77,7 @@ const SignUpScreen = () => {
 						type='email'
 						placeholder='Email e.g. name@example.com'
 						name='email'
-						value={userSignUp.email}
+						value={registerUser.email}
 						onChange={handleInputChange}
 						required
 					></Form.Control>
@@ -76,7 +89,7 @@ const SignUpScreen = () => {
 						type={passwordShown ? 'text' : 'password'}
 						placeholder='Enter your password'
 						name='password'
-						value={userSignUp.password}
+						value={registerUser.password}
 						onChange={handleInputChange}
 						required
 					></Form.Control>
@@ -99,4 +112,4 @@ const SignUpScreen = () => {
 	);
 };
 
-export default SignUpScreen;
+export default RegisterScreen;
