@@ -5,7 +5,8 @@ import Logo from './components/Logo/Logo';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import HomeScreen from './screens/HomeScreen';
-import RegisterScreen from './screens/RegisterScreen/RegisterScreen';
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
 
 import './App.css';
 
@@ -16,6 +17,7 @@ const App = () => {
 			<Logo />
 			<Container>
 				<Route path='/' exact component={HomeScreen} />
+				<Route path='/login' exact component={LoginScreen} />
 				<Route path='/register' exact component={RegisterScreen} />
 			</Container>
 			<Footer />

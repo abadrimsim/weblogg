@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import axios from 'axios';
 
 import './Header.css';
 
 const Header = () => {
+	const [categories, setCategories] = useState([]);
+
+	const url = 'http://localhost:5000/api/category';
+
+	useEffect(() => {
+		getData();
+	}, []);
+
+	const getData = async () => {
+		try {
+			const res = await axios.get(url);
+			setCategories(res.data);
+		} catch (error) {
+			console.log({ error: error });
+		}
+	};
+
 	return (
 		<header>
 			<Navbar expand='lg' collapseOnSelect>
@@ -25,14 +43,14 @@ const Header = () => {
 							</LinkContainer>
 
 							<NavDropdown title='Categories' id='basic-nav-dropdown'>
-								<NavDropdown.Item>Technology</NavDropdown.Item>
-								<NavDropdown.Item>Travel</NavDropdown.Item>
-								<NavDropdown.Item>Lifestyle</NavDropdown.Item>
+								{categories.map((category) => (
+									<NavDropdown.Item>{category.category}</NavDropdown.Item>
+								))}
 							</NavDropdown>
 						</Nav>
 						<Nav>
-							<LinkContainer to='/register'>
-								<Nav.Link>Sign in</Nav.Link>
+							<LinkContainer to='/login'>
+								<Nav.Link>Log In</Nav.Link>
 							</LinkContainer>
 						</Nav>
 					</Navbar.Collapse>
