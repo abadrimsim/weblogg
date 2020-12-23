@@ -1,14 +1,31 @@
 @import '../../fonts/fonts.css';
 
-.customContainer {
-	display: flex;
-	flex-direction: column;
-	width: 40%;
-	box-shadow: 0px 3px 8px #dbdbdb;
+.formContainer {
 	background-color: #fcfefe;
-	padding: 4rem;
-	margin-bottom: 1rem;
-	border-radius: 0.25rem;
+	height: 100vh;
+	padding: 15% 25%;
+}
+
+.imageContainer {
+	background-color: #46b7b9;
+	height: 100vh;
+	padding: 0;
+}
+
+.customImage {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.mainHeader {
+	color: #ffffff;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+	font-size: 2.5rem;
+	position: absolute;
+	top: 6vh;
+	padding: 10%;
 }
 
 .customHeader {
@@ -20,7 +37,7 @@
 }
 
 .customInput {
-	color: #8b8b8b !important;
+	color: #797979 !important;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 0.8rem !important;
 }
@@ -33,7 +50,13 @@
 	color: #969696 !important;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 0.6rem !important;
-	font-style: italic;
+}
+
+.customError {
+	color: #e01515 !important;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.6rem !important;
+	font-weight: 600;
 }
 
 .customButton {
@@ -43,7 +66,6 @@
 	font-size: 0.7rem;
 	font-weight: 700;
 	text-transform: uppercase;
-	border-radius: 0;
 	padding: 0.6rem 1rem;
 	border: none;
 	width: 100%;

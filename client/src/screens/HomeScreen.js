@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Container } from 'react-bootstrap';
+
 import Posts from '../components/Posts/Posts';
 import Loader from '../components/Loader/Loader';
+import Logo from '../components/Logo/Logo';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 
 const HomeScreen = () => {
 	const [posts, setPosts] = useState([]);
@@ -38,7 +43,14 @@ const HomeScreen = () => {
 		}
 	};
 
-	return <>{renderPost()}</>;
+	return (
+		<>
+			<Header />
+			<Logo />
+			<Container>{renderPost()}</Container>
+			<Footer />
+		</>
+	);
 };
 
 export default HomeScreen;

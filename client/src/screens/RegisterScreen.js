@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import FormContainer from '../components/FormContainer/FormContainer';
@@ -23,6 +24,8 @@ const RegisterScreen = () => {
 		password: '',
 	});
 
+	const { register, errors, handleSubmit } = useForm();
+
 	const togglePasswordVisibility = () => {
 		setPasswordShown(passwordShown ? false : true);
 	};
@@ -32,9 +35,7 @@ const RegisterScreen = () => {
 		setRegisterUser({ ...registerUser, [name]: value });
 	};
 
-	const submitHandler = async (e) => {
-		e.preventDefault();
-
+	const onSubmit = async (e) => {
 		const config = {
 			headers: {
 				'Content-Type': 'application/json',
@@ -55,10 +56,8 @@ const RegisterScreen = () => {
 
 	return (
 		<FormContainer>
-			<h2 className={styles.customHeader}>
-				Express yourself and share your passions with Weblogg.
-			</h2>
-			<Form onSubmit={submitHandler}>
+			<h2 className={styles.customHeader}>Let's create your account!</h2>
+			<Form onSubmit={handleSubmit(onSubmit)}>
 				<Form.Group>
 					<Form.Control
 						className={styles.customInput}
@@ -67,8 +66,19 @@ const RegisterScreen = () => {
 						name='fullName'
 						value={registerUser.fullName}
 						onChange={handleInputChange}
-						required
+						ref={register({
+							required: 'This field is required!',
+							minLength: {
+								value: 4,
+								message: 'Minimum length is 4.',
+							},
+						})}
 					></Form.Control>
+					{errors.fullName && (
+						<Form.Text className={styles.customError}>
+							{errors.fullName.message}
+						</Form.Text>
+					)}
 				</Form.Group>
 
 				<Form.Group>
@@ -79,8 +89,19 @@ const RegisterScreen = () => {
 						name='email'
 						value={registerUser.email}
 						onChange={handleInputChange}
-						required
+						ref={register({
+							required: 'This field is required!',
+							pattern: {
+								value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+								message: 'Invalid email address.',
+							},
+						})}
 					></Form.Control>
+					{errors.email && (
+						<Form.Text className={styles.customError}>
+							{errors.email.message}
+						</Form.Text>
+					)}
 				</Form.Group>
 
 				<InputGroup className='mb-3'>
@@ -91,7 +112,13 @@ const RegisterScreen = () => {
 						name='password'
 						value={registerUser.password}
 						onChange={handleInputChange}
-						required
+						ref={register({
+							required: 'This field is required!',
+							minLength: {
+								value: 8,
+								message: 'Minimum length is 8.',
+							},
+						})}
 					></Form.Control>
 					<InputGroup.Append onClick={togglePasswordVisibility}>
 						<Button size='sm' variant='outline-info'>
@@ -99,13 +126,14 @@ const RegisterScreen = () => {
 						</Button>
 					</InputGroup.Append>
 				</InputGroup>
-				<Form.Text className={styles.customText}>
-					Password should be a minimum of 8 characters and should contain an
-					uppercase letter and a symbol.
-				</Form.Text>
+				{errors.password && (
+					<Form.Text className={styles.customError}>
+						{errors.password.message}
+					</Form.Text>
+				)}
 
 				<Button className={styles.customButton} type='submit' variant='primary'>
-					Register!
+					Register
 				</Button>
 			</Form>
 		</FormContainer>

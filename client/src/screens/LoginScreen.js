@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import FormContainer from '../components/FormContainer/FormContainer';
@@ -22,6 +23,10 @@ const LoginScreen = () => {
 		password: '',
 	});
 
+	const { register, errors, handleSubmit } = useForm({
+		mode: 'onChange',
+	});
+
 	const togglePasswordVisibility = () => {
 		setPasswordShown(passwordShown ? false : true);
 	};
@@ -31,9 +36,7 @@ const LoginScreen = () => {
 		setLoginUser({ ...loginUser, [name]: value });
 	};
 
-	const submitHandler = async (e) => {
-		e.preventDefault();
-
+	const onSubmit = async (e) => {
 		const config = {
 			headers: {
 				'Content-Type': 'application/json',
@@ -55,7 +58,7 @@ const LoginScreen = () => {
 	return (
 		<FormContainer>
 			<h2 className={styles.customHeader}>Hey you, welcome back!</h2>
-			<Form onSubmit={submitHandler}>
+			<Form onSubmit={handleSubmit(onSubmit)}>
 				<Form.Group>
 					<Form.Control
 						className={styles.customInput}
@@ -64,8 +67,15 @@ const LoginScreen = () => {
 						name='email'
 						value={loginUser.email}
 						onChange={handleInputChange}
-						required
+						ref={register({
+							required: 'This field is required!',
+						})}
 					></Form.Control>
+					{errors.email && (
+						<Form.Text className={styles.customError}>
+							{errors.email.message}
+						</Form.Text>
+					)}
 				</Form.Group>
 
 				<InputGroup className='mb-3'>
@@ -76,7 +86,9 @@ const LoginScreen = () => {
 						name='password'
 						value={loginUser.password}
 						onChange={handleInputChange}
-						required
+						ref={register({
+							required: 'This field is required!',
+						})}
 					></Form.Control>
 					<InputGroup.Append onClick={togglePasswordVisibility}>
 						<Button size='sm' variant='outline-info'>
@@ -85,12 +97,18 @@ const LoginScreen = () => {
 					</InputGroup.Append>
 				</InputGroup>
 
+				{errors.password && (
+					<Form.Text className={styles.customError}>
+						{errors.password.message}
+					</Form.Text>
+				)}
+
 				<Button className={styles.customButton} type='submit' variant='primary'>
 					Continue
 				</Button>
 				<Form.Text className={styles.customText}>
-					Don't have an account yet? Create one
-					<Link to='/register'> here</Link>!
+					Don't have an account?
+					<Link to='/register'> Create Account</Link>
 				</Form.Text>
 			</Form>
 		</FormContainer>

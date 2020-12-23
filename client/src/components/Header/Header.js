@@ -23,6 +23,29 @@ const Header = () => {
 		}
 	};
 
+	const handleClearStorage = () => {
+		if (localStorage.token) {
+			localStorage.removeItem('token');
+		}
+	};
+
+	const loginLogout = () => {
+		return localStorage.token ? (
+			<>
+				<LinkContainer onClick={handleClearStorage} to='/'>
+					<Nav.Link>Log Out</Nav.Link>
+				</LinkContainer>
+				<LinkContainer to='/'>
+					<Nav.Link>Create</Nav.Link>
+				</LinkContainer>
+			</>
+		) : (
+			<LinkContainer to='/login'>
+				<Nav.Link>Log In</Nav.Link>
+			</LinkContainer>
+		);
+	};
+
 	return (
 		<header>
 			<Navbar expand='lg' collapseOnSelect>
@@ -48,11 +71,7 @@ const Header = () => {
 								))}
 							</NavDropdown>
 						</Nav>
-						<Nav>
-							<LinkContainer to='/login'>
-								<Nav.Link>Log In</Nav.Link>
-							</LinkContainer>
-						</Nav>
+						<Nav>{loginLogout()}</Nav>
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>

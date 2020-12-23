@@ -24,13 +24,6 @@ const userSchema = new Schema(
 			type: String,
 			required: true,
 			minlength: 8,
-			validate(value) {
-				if (!validator.isStrongPassword(value)) {
-					throw new Error(
-						'Password should contain an uppercase letter and a symbol.'
-					);
-				}
-			},
 		},
 		profilePhoto: String,
 		isAdmin: {
