@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Grid } from '@material-ui/core';
 
+import Navigator from './components/Navigator/Navigator';
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
@@ -10,9 +12,16 @@ import './App.css';
 const App = () => {
 	return (
 		<Router>
-			<Route path='/' exact component={HomeScreen} />
-			<Route path='/login' exact component={LoginScreen} />
-			<Route path='/register' exact component={RegisterScreen} />
+			<Grid container>
+				<Grid item sm={3}>
+					<Navigator />
+				</Grid>
+				<Grid item sm={9}>
+					<Route path='/' exact component={HomeScreen} />
+					<Route path='/login' exact component={LoginScreen} />
+					<Route path='/register' exact component={RegisterScreen} />
+				</Grid>
+			</Grid>
 		</Router>
 	);
 };

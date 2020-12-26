@@ -26,6 +26,7 @@
 a:hover {
 	color: #ffffff !important;
 	background-color: #46b7b9 !important;
+	/* color: #e4cb98 */
 }
 
 .nav-item:hover .dropdown-menu {
