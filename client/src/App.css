@@ -1,14 +1,15 @@
 html,
 body {
-	background-color: #f6f6f6;
-	height: 100%;
-	position: relative;
+	/* background-color: #f6f6f6; */
+	/* background-color: #3bd8ec; */
+	/* height: 100%; */
+	/* position: relative; */
 }
 
 #root {
-	min-height: 100vh;
-	overflow: hidden;
-	display: block;
-	position: relative;
+	/* min-height: 100vh; */
+	/* overflow: hidden; */
+	/* display: block; */
+	/* position: relative; */
 	/* padding-bottom: 20vh; */
 }

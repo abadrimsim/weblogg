@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Container } from 'react-bootstrap';
 
+import { Grid } from '@material-ui/core';
+
+import Avatar from '../components/Avatar/Avatar';
 import Posts from '../components/Posts/Posts';
 import Loader from '../components/Loader/Loader';
-import Logo from '../components/Logo/Logo';
-import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
 const HomeScreen = () => {
@@ -26,29 +26,40 @@ const HomeScreen = () => {
 		}
 	};
 
-	const renderPost = () => {
-		if (posts.length === 0) {
-			return <Loader />;
-		} else {
-			return posts.map((post) => (
-				<Posts
-					key={post._id}
-					image={post.image}
-					category={post.category}
-					title={post.title}
-					body={post.body}
-					createdAt={post.createdAt}
-				/>
-			));
-		}
-	};
+	// const renderPost = () => {
+	// 	if (posts.length === 0) {
+	// 		return <Loader />;
+	// 	} else {
+	// 		return posts.map((post) => (
+	// 			<Posts
+	// 				key={post._id}
+	// 				image={post.image}
+	// 				category={post.category}
+	// 				title={post.title}
+	// 				body={post.body}
+	// 				createdAt={post.createdAt}
+	// 			/>
+	// 		));
+	// 	}
+	// };
 
 	return (
 		<>
-			<Header />
-			<Logo />
-			<Container>{renderPost()}</Container>
-			<Footer />
+			<Grid container direction='column'>
+				<Grid item sm={12}>
+					<Avatar />
+				</Grid>
+				<Grid item sm={12}>
+					{/* {renderPost()} */}
+					<Posts />
+					<Posts />
+					<Posts />
+				</Grid>
+
+				<Grid item sm={12}>
+					<Footer />
+				</Grid>
+			</Grid>
 		</>
 	);
 };
