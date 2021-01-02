@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 
-import Avatar from '../components/Avatar/Avatar';
 import Posts from '../components/Posts/Posts';
 import Loader from '../components/Loader/Loader';
 import Footer from '../components/Footer/Footer';
+import Navbar from '../components/Navbar/Navbar';
 
 const HomeScreen = () => {
 	const [posts, setPosts] = useState([]);
@@ -44,23 +44,35 @@ const HomeScreen = () => {
 	// };
 
 	return (
-		<>
-			<Grid container direction='column'>
-				<Grid item sm={12}>
-					<Avatar />
-				</Grid>
-				<Grid item sm={12}>
-					{/* {renderPost()} */}
-					<Posts />
-					<Posts />
-					<Posts />
-				</Grid>
-
-				<Grid item sm={12}>
-					<Footer />
+		<Grid container direction='row'>
+			<Grid item sm={2}>
+				<Navbar />
+			</Grid>
+			<Grid item sm={10}>
+				<Grid container direction='column'>
+					<Typography gutterBottom variant='h2'>
+						Hey! Welcome to Weblogg!
+					</Typography>
+					<Grid container>
+						<Grid item sm={9}>
+							{/* {renderPost()} */}
+							<Posts />
+							<Posts />
+							<Posts />
+							<Posts />
+							<Posts />
+							<Posts />
+						</Grid>
+						<Grid item sm={3}>
+							<Posts />
+						</Grid>
+					</Grid>
+					<Grid item sm={12}>
+						<Footer />
+					</Grid>
 				</Grid>
 			</Grid>
-		</>
+		</Grid>
 	);
 };
 

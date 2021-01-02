@@ -1,38 +1,85 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import './fonts/fonts.css';
 
-const theme = createMuiTheme({
+let theme = createMuiTheme({
+	palette: {
+		background: {
+			paper: '#F2F5F9',
+		},
+	},
 	typography: {
-		fontFamily: "'Lora', serif",
+		fontFamily: "'Hind Siliguri', sans-serif",
+		h2: {
+			fontWeight: '600',
+			fontSize: '1.5rem',
+			margin: '4rem 6rem',
+		},
 		h4: {
-			color: '#222222',
-			fontFamily: "'Oswald', sans-serif",
-			textTransform: 'uppercase',
-			fontSize: '2rem',
+			color: '#272625',
+			fontWeight: '600',
+			fontSize: '1.25rem',
 		},
 		h5: {
-			color: '#222222',
-			fontFamily: "'Oswald', sans-serif",
-			textTransform: 'uppercase',
-			fontSize: '1.25rem',
-			letterSpacing: '0.2rem',
-		},
-		h6: {
-			color: '#a1a1a1',
-			fontSize: '0.8rem',
-			fontStyle: 'italic',
+			color: '#272625',
+			fontWeight: '600',
 		},
 		body1: {
-			fontFamily: "'Oswald', sans-serif",
-			fontSize: '1.25rem',
-			letterSpacing: '0.15rem',
-			lineHeight: 1,
+			fontSize: '0.9rem',
+			fontWeight: '500',
+			lineHeight: 1.5,
 		},
+
 		button: {
-			letterSpacing: '0.10rem',
-			fontFamily: "'Oswald', sans-serif",
+			'&:hover,&:focus': {
+				outline: 'none',
+			},
 		},
 	},
 });
+
+theme = {
+	...theme,
+	overrides: {
+		MuiGrid: {
+			root: {
+				backgroundColor: '#F2F5F9',
+			},
+		},
+		MuiList: {
+			padding: {
+				paddingTop: 0,
+				paddingBottom: 0,
+			},
+		},
+		MuiListItem: {
+			button: {
+				'&:hover,&:focus': {
+					color: '#989EAA',
+				},
+			},
+			gutters: {
+				paddingLeft: 0,
+			},
+		},
+		MuiAvatar: {
+			root: {
+				display: 'inline-block',
+			},
+		},
+		MuiButtonBase: {
+			root: {
+				'&:hover,&:focus': {
+					outline: 'none',
+					color: '#e6ecf4',
+				},
+			},
+		},
+		MuiCardContent: {
+			root: {
+				textAlign: 'left',
+			},
+		},
+	},
+};
 
 export default theme;

@@ -1,26 +1,19 @@
 import React from 'react';
-import { Image, Row, Col, Container } from 'react-bootstrap';
-import styles from './FormContainer.module.css';
+import { CssBaseline, Grid, Paper } from '@material-ui/core';
+import useStyles from './styles';
+// import { Image, Row, Col, Container } from 'react-bootstrap';
+// import styles from './FormContainer.module.css';
 
 const FormContainer = ({ children }) => {
+	const classes = useStyles();
 	return (
-		<>
-			<Row>
-				<Col className={styles.imageContainer}>
-					<Container className={styles.mainHeader}>
-						Express yourself and share your passions with Weblogg.
-					</Container>
-					<Image
-						src='https://i.ibb.co/VQn9P5c/weblogg-account-user.png'
-						className={styles.customImage}
-						fluid
-					/>
-				</Col>
-				<Col className={styles.formContainer} xs={12} md={8}>
-					{children}
-				</Col>
-			</Row>
-		</>
+		<Grid container component='main' className={classes.root}>
+			<CssBaseline />
+			<Grid item xs={false} sm={4} md={9} className={classes.image} />
+			<Grid item xs={12} sm={8} md={3} component={Paper} elevation={6} square>
+				<div className={classes.paper}>{children}</div>
+			</Grid>
+		</Grid>
 	);
 };
 
