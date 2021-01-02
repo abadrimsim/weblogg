@@ -1,21 +1,16 @@
 import React from 'react';
-// import { Button, Card } from 'react-bootstrap';
 // import dateFormat from 'dateformat';
 
 import {
-	Button,
+	Avatar,
 	Card,
 	CardActionArea,
-	CardActions,
 	CardContent,
-	CardHeader,
 	CardMedia,
-	Divider,
+	Grow,
 	Typography,
 } from '@material-ui/core';
 import useStyles from './styles';
-
-// import styles from './Posts.module.css';
 
 // const Posts = ({ image, category, title, body, createdAt }) => {
 // 	const date = dateFormat(createdAt, 'dd. mmm yyyy');
@@ -40,44 +35,60 @@ const Posts = () => {
 	const classes = useStyles();
 
 	return (
-		<Card className={classes.root}>
-			<CardActionArea>
+		<Grow in {...{ timeout: 4000 }}>
+			<Card className={classes.root}>
 				<CardMedia
-					className={classes.media}
-					image='https://www.technipages.com/wp-content/plugins/accelerated-mobile-pages/images/SD-default-image.png'
-					title='Contemplative Reptile'
+					component='img'
+					className={classes.postImage}
+					alt='10 Reasons Why I Love Coffee'
+					image='https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG'
+					title='10 Reasons Why I Love Coffee'
 				/>
-			</CardActionArea>
 
-			<CardContent>
-				<Typography className={classes.category} variant='h5'>
-					Lifestyle
-				</Typography>
-				<CardHeader
-					className={classes.cardHeader}
-					title='The Best Working Environment'
-					titleTypographyProps={{ variant: 'h4' }}
-					subheader='Posted on March 15, 2018 by John Wood'
-					subheaderTypographyProps={{ variant: 'h6' }}
-				/>
-				<Typography className={classes.body} variant='body2' component='p'>
-					My first true love happened when I was a student at Shaw University in
-					Raleigh NC and I must say it was a wonderful experience. She was a
-					freshman, and she was so beautiful with caramel skin and soft dark
-					eyes. She had a sweet slim frame and curves of a finely chiseled piece
-					of clay. Everybody knew her government name, but, eventually they knew
-					her by the name I affectionately called her by, “Blue”.
-				</Typography>
-			</CardContent>
+				<CardActionArea className={classes.postContainer}>
+					<CardContent className={classes.postContent}>
+						<Typography variant='h4' className={classes.postTitle}>
+							10 Reasons Why I Love Coffee
+						</Typography>
+						<Typography
+							variant='body2'
+							component='p'
+							className={classes.postCategory}
+						>
+							Lifestyle
+						</Typography>
 
-			<CardActions className={classes.cardActions}>
-				<Button size='small' className={classes.button}>
-					Continue Reading
-				</Button>
-			</CardActions>
+						<Typography
+							variant='body2'
+							component='p'
+							className={classes.postText}
+						>
+							A romantic journey is the best way to fill your relationship with
+							a loved one with new feelings and vivid emotions. This journey
+							will leave only pleasant impressions...
+						</Typography>
 
-			<Divider />
-		</Card>
+						<CardContent className={classes.accountUser}>
+							<Avatar
+								alt='Han Ji-pyeong'
+								src='https://pbs.twimg.com/profile_images/1336902902661595136/zSqCWzr5.jpg'
+								className={classes.userAvatar}
+							/>
+							<Typography
+								variant='h5'
+								component='p'
+								className={classes.userName}
+							>
+								Han Ji Pyeong
+							</Typography>
+							<Typography variant='h5' component='p' className={classes.date}>
+								Jan 2, 2021
+							</Typography>
+						</CardContent>
+					</CardContent>
+				</CardActionArea>
+			</Card>
+		</Grow>
 	);
 };
 

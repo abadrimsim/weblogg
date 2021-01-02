@@ -1,14 +1,21 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-	footer: {
-		padding: '7rem',
+	divider: {
+		marginTop: '3rem',
+		backgroundColor: '#E2E7EE',
+		height: '1.5px',
+	},
+	footerContainer: {
+		padding: '2rem',
 	},
 	text: {
-		margin: '0.25rem',
+		color: '#C2CCDB',
+		fontSize: '0.8rem',
 	},
 	copyright: {
-		fontSize: '0.75rem',
+		color: '#C2CCDB',
+		fontSize: '0.7rem',
 	},
 });
 

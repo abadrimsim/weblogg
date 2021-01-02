@@ -2,39 +2,60 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
 	root: {
-		margin: '5rem 15rem',
-		borderRadius: 0,
-		boxShadow: 'none',
+		backgroundColor: '#FFFFFF',
+		borderRadius: 15,
+		boxShadow: '0 3px 10px 5px #E8EDF4',
+		display: 'flex',
+		margin: '1.5rem auto',
+		maxWidth: '45vw',
 	},
-	cardHeader: {
-		textAlign: 'center',
-		marginBottom: '1rem',
+	postImage: {
+		width: '20rem',
+		borderRadius: 15,
+		margin: '0.75rem',
 	},
-	category: {
-		textAlign: 'center',
+	postTitle: {
+		marginBottom: '0.5rem',
+	},
+	postContainer: {
+		flexDirection: 'column',
+	},
+	postContent: {
+		flex: '1 0 auto',
+		padding: '2rem 2rem 0 1rem',
+	},
+	postCategory: {
+		backgroundColor: '#D7F5FE',
+		color: '#78D4F0',
+		fontWeight: '600',
+		display: 'initial',
+		padding: '0 0.5rem',
+		borderRadius: 15,
+	},
+	postText: {
+		color: '#78828C',
+		fontWeight: '500',
 		marginTop: '1rem',
 	},
-	media: {
-		height: '30rem',
+	accountUser: {
+		padding: '1rem 0 0 0',
 	},
-	body: {
-		color: '#33333',
-		lineHeight: '1.5rem',
-		textAlign: 'justify',
-		marginBottom: '1rem',
+	userAvatar: {
+		display: 'inline-flex',
+		marginTop: '0.5rem',
 	},
-	button: {
-		color: '#ffffff',
-		backgroundColor: '#d3c4a6',
-		borderRadius: 0,
-		padding: '0.5rem 0.8rem',
-		'&:hover,&:focus': {
-			backgroundColor: '#bba579',
-		},
+	userName: {
+		display: 'inline-flex',
+		position: 'absolute',
+		margin: '0.75rem 0.5rem',
+		fontSize: '0.8rem',
 	},
-	cardActions: {
-		justifyContent: 'center',
-		marginBottom: '2.5rem',
+	date: {
+		display: 'inline-flex',
+		position: 'absolute',
+		margin: '1.75rem 0.5rem',
+		fontSize: '0.75rem',
+		color: '#78828C',
 	},
 });
 
