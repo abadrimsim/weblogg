@@ -4,8 +4,8 @@ import axios from 'axios';
 import { Grid, Typography } from '@material-ui/core';
 
 import Posts from '../components/Posts/Posts';
+import Sidebar from '../components/Sidebar/Sidebar';
 import Loader from '../components/Loader/Loader';
-import Footer from '../components/Footer/Footer';
 import Navbar from '../components/Navbar/Navbar';
 
 const HomeScreen = () => {
@@ -48,28 +48,13 @@ const HomeScreen = () => {
 			<Grid item sm={2}>
 				<Navbar />
 			</Grid>
-			<Grid item sm={10}>
-				<Grid container direction='column'>
-					<Typography gutterBottom variant='h2'>
-						Hey! Welcome to Weblogg!
-					</Typography>
-					<Grid container>
-						<Grid item sm={9}>
-							{/* {renderPost()} */}
-							<Posts />
-							<Posts />
-							<Posts />
-							<Posts />
-							<Posts />
-							<Posts />
-						</Grid>
-						<Grid item sm={3}>
-							<Posts />
-						</Grid>
-					</Grid>
-					<Grid item sm={12}>
-						<Footer />
-					</Grid>
+			<Grid container direction='row' sm={10}>
+				<Grid container sm={8}>
+					{/* {renderPost()} */}
+					<Posts />
+				</Grid>
+				<Grid item sm={4}>
+					<Sidebar />
 				</Grid>
 			</Grid>
 		</Grid>

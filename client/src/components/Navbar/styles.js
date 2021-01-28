@@ -4,43 +4,42 @@ const useStyles = makeStyles((theme) => ({
 	drawer: {
 		color: '#989EAA',
 		backgroundColor: '#161C25',
-		width: '20vw',
-		padding: '5rem 0 2rem',
+		padding: '2rem 0',
 		border: 'none',
 	},
 	header: {
-		padding: '0 4rem',
+		padding: '0 2rem',
 		fontSize: '1.2rem',
 		fontWeight: '600',
 		color: '#875CC0',
 	},
 	divider: {
-		margin: '2rem 0',
-		backgroundColor: '#222A36',
-		height: '2px',
+		margin: '1rem 0',
+		backgroundColor: '#3B4148',
 	},
 	menuItem: {
-		padding: '0.5rem 4rem',
+		padding: '0.5rem 2rem',
 		'&:hover,&:focus': {
 			backgroundColor: '#3B4148',
 		},
 	},
 	icon: {
-		marginRight: '0.5rem',
+		marginRight: '1rem',
+		fontSize: 'inherit',
 	},
 	submenu: {
-		padding: '0.5rem 3rem 0.5rem 5.5rem',
+		padding: '0.5rem 4rem',
 		'&:hover,&:focus': {
 			backgroundColor: '#3B4148',
 		},
 	},
 	navbarImage: {
-		margin: '8rem 4rem 0',
-		height: '100%',
+		margin: '20rem 2rem 0',
+		height: '10vw',
 		backgroundSize: 'contain',
 	},
 	subtitle: {
-		margin: '0 4rem 1rem',
+		margin: '0 2rem 1rem',
 		textAlign: 'center',
 	},
 	button: {
@@ -51,10 +50,15 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: '0.9rem',
 		padding: '0.5rem',
 		textTransform: 'capitalize',
-		margin: '0 4rem 2rem',
+		margin: '0 3rem 3rem',
 		'&:hover,&:focus': {
 			boxShadow: '0 3px 10px 3px rgba(105, 140, 255, 0.3)',
 		},
+	},
+	customFooter: {
+		color: '#5B616E',
+		fontSize: '0.8rem',
+		margin: '0 2rem',
 	},
 }));
 
