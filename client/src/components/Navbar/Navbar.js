@@ -6,7 +6,6 @@ import {
 	Button,
 	Collapse,
 	Drawer,
-	Grow,
 	List,
 	ListItem,
 	ListItemText,
@@ -25,6 +24,8 @@ import useStyles from './styles';
 
 const Navbar = () => {
 	const classes = useStyles();
+	const year = new Date().getFullYear();
+
 	const [open, setOpen] = useState(false);
 	const [categories, setCategories] = useState([]);
 
@@ -49,27 +50,21 @@ const Navbar = () => {
 
 	return (
 		<Drawer classes={{ paper: classes.drawer }} variant='permanent'>
-			<Grow in style={{ transformOrigin: '0 0 0' }} {...{ timeout: 1000 }}>
-				<Typography className={classes.header}>WEBLOGG</Typography>
-			</Grow>
+			<Typography className={classes.header}>WEBLOGG</Typography>
 
 			<Divider className={classes.divider} />
 
 			<List>
-				<Grow in style={{ transformOrigin: '0 0 0' }} {...{ timeout: 2000 }}>
-					<ListItem button className={classes.menuItem} component={Link} to='/'>
-						<HomeOutlinedIcon className={classes.icon} fontSize='inherit' />
-						<ListItemText primary='Home' />
-					</ListItem>
-				</Grow>
+				<ListItem button className={classes.menuItem} component={Link} to='/'>
+					<HomeOutlinedIcon className={classes.icon} />
+					<ListItemText primary='Home' />
+				</ListItem>
 
-				<Grow in style={{ transformOrigin: '0 0 0' }} {...{ timeout: 3000 }}>
-					<ListItem button className={classes.menuItem} onClick={handleClick}>
-						<CategoryOutlinedIcon className={classes.icon} fontSize='inherit' />
-						<ListItemText primary='Categories' />
-						{open ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
-					</ListItem>
-				</Grow>
+				<ListItem button className={classes.menuItem} onClick={handleClick}>
+					<CategoryOutlinedIcon className={classes.icon} />
+					<ListItemText primary='Categories' />
+					{open ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+				</ListItem>
 
 				<Collapse in={open} timeout='auto' unmountOnExit>
 					<List component='div' disablePadding>
@@ -81,50 +76,48 @@ const Navbar = () => {
 					</List>
 				</Collapse>
 
-				<Grow in style={{ transformOrigin: '0 0 0' }} {...{ timeout: 4000 }}>
-					<ListItem
-						button
-						className={classes.menuItem}
-						component={Link}
-						to='/about'
-					>
-						<InfoOutlinedIcon className={classes.icon} fontSize='inherit' />
-						<ListItemText primary='About' />
-					</ListItem>
-				</Grow>
+				<ListItem
+					button
+					className={classes.menuItem}
+					component={Link}
+					to='/about'
+				>
+					<InfoOutlinedIcon className={classes.icon} />
+					<ListItemText primary='About' />
+				</ListItem>
 
-				<Grow in style={{ transformOrigin: '0 0 0' }} {...{ timeout: 5000 }}>
-					<ListItem
-						button
-						className={classes.menuItem}
-						component={Link}
-						to='/contact'
-					>
-						<MailOutlinedIcon className={classes.icon} fontSize='inherit' />
-						<ListItemText primary='Contact' />
-					</ListItem>
-				</Grow>
+				<ListItem
+					button
+					className={classes.menuItem}
+					component={Link}
+					to='/contact'
+				>
+					<MailOutlinedIcon className={classes.icon} />
+					<ListItemText primary='Contact' />
+				</ListItem>
 			</List>
 
-			<Grow in {...{ timeout: 4000 }}>
-				<CardMedia
-					className={classes.navbarImage}
-					image='https://i.ibb.co/bLfzPfC/user-account.png'
-					title='Create Account'
-				/>
-			</Grow>
+			<CardMedia
+				className={classes.navbarImage}
+				image='https://i.ibb.co/bLfzPfC/user-account.png'
+				title='Create Account'
+			/>
 
-			<Grow in {...{ timeout: 4000 }} className={classes.subtitle}>
-				<Typography variant='body1'>
-					Write and share your blog today!
-				</Typography>
-			</Grow>
+			<Typography variant='body1' className={classes.subtitle}>
+				Write and share your blog today!
+			</Typography>
 
-			<Grow in {...{ timeout: 4000 }}>
-				<Button className={classes.button} component={Link} to='/login'>
-					Get Started!
-				</Button>
-			</Grow>
+			<Button className={classes.button} component={Link} to='/login'>
+				Get Started!
+			</Button>
+
+			<Typography
+				className={classes.customFooter}
+				variant='body2'
+				align='center'
+			>
+				&copy; {year} Angel Adrimsim
+			</Typography>
 		</Drawer>
 	);
 };

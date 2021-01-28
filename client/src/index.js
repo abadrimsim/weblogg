@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { ThemeProvider } from '@material-ui/core';
 import theme from './theme';

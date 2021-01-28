@@ -12,7 +12,7 @@ let theme = createMuiTheme({
 		h2: {
 			fontWeight: '600',
 			fontSize: '1.5rem',
-			margin: '4rem 6rem',
+			color: '#272625',
 		},
 		h4: {
 			color: '#272625',

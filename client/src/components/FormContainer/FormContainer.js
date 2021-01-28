@@ -1,5 +1,5 @@
 import React from 'react';
-import { CssBaseline, Grid, Paper } from '@material-ui/core';
+import { CssBaseline, Grid, Paper, Typography } from '@material-ui/core';
 import useStyles from './styles';
 // import { Image, Row, Col, Container } from 'react-bootstrap';
 // import styles from './FormContainer.module.css';
