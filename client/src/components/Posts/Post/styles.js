@@ -3,16 +3,15 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
 	root: {
 		backgroundColor: '#FFFFFF',
-		borderRadius: 10,
-		boxShadow: '0 3px 10px 5px #E3E9F2',
+		borderRadius: 15,
+		boxShadow: '0 3px 10px 5px #E8EDF4',
 		display: 'flex',
-		margin: '1rem auto',
-		// maxWidth: '45vw',
+		margin: '0.75rem auto',
 	},
 	postImage: {
 		width: '20rem',
-		borderRadius: 10,
-		margin: '0.9rem',
+		borderRadius: 15,
+		margin: '1.5rem',
 	},
 	postTitle: {
 		marginBottom: '0.5rem',

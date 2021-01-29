@@ -5,13 +5,13 @@ const useStyles = makeStyles({
 		display: 'flex',
 		alignItems: 'center',
 		margin: '1.5rem auto',
-		maxWidth: '45vw',
+		maxWidth: '80%',
 	},
 	header: {
-		fontSize: '1rem',
+		fontSize: '1.5rem',
 		fontWeight: '600',
-		color: '#875CC0',
-		textTransform: 'uppercase',
+		color: '#272625',
+		marginBottom: '1.5rem',
 	},
 });
 

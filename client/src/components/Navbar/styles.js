@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 	button: {
 		background: 'linear-gradient(45deg, #6E60D9 40%, #4AB5E3 90%)',
 		border: 0,
-		borderRadius: 10,
+		borderRadius: 12,
 		color: 'white',
 		fontSize: '0.9rem',
 		padding: '0.5rem',
