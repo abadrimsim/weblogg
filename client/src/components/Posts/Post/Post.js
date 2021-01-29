@@ -35,7 +35,7 @@ const Post = () => {
 	const classes = useStyles();
 
 	return (
-		<Grow in style={{ transformOrigin: '0 0 0' }} {...{ timeout: 1500 }}>
+		<Grow in style={{ transformOrigin: '0 0 0' }} {...{ timeout: 1000 }}>
 			<Card className={classes.root}>
 				<CardMedia
 					component='img'
@@ -63,9 +63,12 @@ const Post = () => {
 							component='p'
 							className={classes.postText}
 						>
-							A romantic journey is the best way to fill your relationship with
-							a loved one with new feelings and vivid emotions. This journey
-							will leave only pleasant impressions...
+							Aenean ac ullamcorper mi, vel molestie arcu. Nam gravida, lacus
+							nec tristique mollis, risus elit dignissim lorem, a venenatis orci
+							nibh quis ex. Aliquam eu enim diam. Duis sed lobortis tortor. Sed
+							venenatis nisi non diam condimentum, at dictum ante sagittis.
+							Nullam non est et turpis tempus facilisis non a erat. Vestibulum
+							ante ipsum primis...
 						</Typography>
 
 						<CardContent className={classes.accountUser}>
