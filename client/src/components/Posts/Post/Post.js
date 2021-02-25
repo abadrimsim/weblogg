@@ -59,7 +59,7 @@ const Post = () => {
 						</Typography>
 
 						<Typography
-							variant='body2'
+							variant='body1'
 							component='p'
 							className={classes.postText}
 						>

@@ -32,7 +32,7 @@ const useStyles = makeStyles({
 		borderRadius: 10,
 	},
 	postText: {
-		color: '#78828C',
+		color: 'rgba(0, 0, 0, 0.54)',
 		fontWeight: '500',
 		marginTop: '1rem',
 	},
