@@ -7,6 +7,7 @@ const useStyles = makeStyles({
 		boxShadow: '0 3px 10px 5px #E8EDF4',
 		padding: '1.25rem',
 		margin: '5.5rem 4rem 0 0',
+		width: '65%',
 	},
 	listItem: {
 		padding: '0.75rem',

@@ -9,6 +9,11 @@ let theme = createMuiTheme({
 	},
 	typography: {
 		fontFamily: "'Hind Siliguri', sans-serif",
+		h1: {
+			fontWeight: '600',
+			fontSize: '3rem',
+			color: '#272625',
+		},
 		h2: {
 			fontWeight: '600',
 			fontSize: '1.5rem',
@@ -23,12 +28,19 @@ let theme = createMuiTheme({
 			color: '#272625',
 			fontWeight: '600',
 		},
+		h6: {
+			color: '#272625',
+			fontWeight: '600',
+		},
 		body1: {
 			fontSize: '0.9rem',
 			fontWeight: '500',
 			lineHeight: 1.5,
 		},
-
+		body2: {
+			color: 'rgba(0, 0, 0, 0.54)',
+			fontWeight: '600',
+		},
 		button: {
 			'&:hover,&:focus': {
 				outline: 'none',
@@ -70,7 +82,7 @@ theme = {
 			root: {
 				'&:hover,&:focus': {
 					outline: 'none',
-					color: '#e6ecf4',
+					// color: '#e6ecf4',
 				},
 			},
 		},

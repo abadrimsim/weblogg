@@ -49,11 +49,11 @@ const HomeScreen = () => {
 				<Navbar />
 			</Grid>
 			<Grid container direction='row' sm={10}>
-				<Grid container sm={9}>
+				<Grid container sm={8}>
 					{/* {renderPost()} */}
 					<Posts />
 				</Grid>
-				<Grid item sm={3}>
+				<Grid item sm={4}>
 					<Sidebar />
 				</Grid>
 			</Grid>

@@ -19,6 +19,9 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import MailOutlinedIcon from '@material-ui/icons/MailOutlined';
+import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
+
+import ContactDialog from '../Contact/Contact';
 
 import useStyles from './styles';
 
@@ -26,8 +29,10 @@ const Navbar = () => {
 	const classes = useStyles();
 	const year = new Date().getFullYear();
 
-	const [open, setOpen] = useState(false);
+	const [openCategories, setOpenCategories] = useState(false);
 	const [categories, setCategories] = useState([]);
+
+	const [openContactDialog, setOpenContactDialog] = useState(false);
 
 	const url = 'http://localhost:5000/api/category';
 
@@ -44,15 +49,21 @@ const Navbar = () => {
 		}
 	};
 
-	const handleClick = () => {
-		setOpen(!open);
+	const handleClickCategories = () => {
+		setOpenCategories(!openCategories);
+	};
+
+	const handleClickContact = () => {
+		setOpenContactDialog(true);
+	};
+
+	const handleCloseContact = () => {
+		setOpenContactDialog(false);
 	};
 
 	return (
 		<Drawer classes={{ paper: classes.drawer }} variant='permanent'>
 			<Typography className={classes.header}>WEBLOGG</Typography>
-
-			<Divider className={classes.divider} />
 
 			<List>
 				<ListItem button className={classes.menuItem} component={Link} to='/'>
@@ -60,13 +71,17 @@ const Navbar = () => {
 					<ListItemText primary='Home' />
 				</ListItem>
 
-				<ListItem button className={classes.menuItem} onClick={handleClick}>
+				<ListItem
+					button
+					className={classes.menuItem}
+					onClick={handleClickCategories}
+				>
 					<CategoryOutlinedIcon className={classes.icon} />
 					<ListItemText primary='Categories' />
-					{open ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+					{openCategories ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
 				</ListItem>
 
-				<Collapse in={open} timeout='auto' unmountOnExit>
+				<Collapse in={openCategories} timeout='auto' unmountOnExit>
 					<List component='div' disablePadding>
 						{categories.map((category) => (
 							<ListItem button className={classes.submenu}>
@@ -75,6 +90,13 @@ const Navbar = () => {
 						))}
 					</List>
 				</Collapse>
+
+				<ListItem button className={classes.menuItem} component={Link} to='/'>
+					<PersonOutlineOutlinedIcon className={classes.icon} />
+					<ListItemText primary='My Posts' />
+				</ListItem>
+
+				<Divider className={classes.divider} />
 
 				<ListItem
 					button
@@ -90,10 +112,14 @@ const Navbar = () => {
 					button
 					className={classes.menuItem}
 					component={Link}
-					to='/contact'
+					onClick={handleClickContact}
 				>
 					<MailOutlinedIcon className={classes.icon} />
 					<ListItemText primary='Contact' />
+					<ContactDialog
+						openContactDialog={openContactDialog}
+						handleCloseContact={handleCloseContact}
+					/>
 				</ListItem>
 			</List>
 

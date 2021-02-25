@@ -8,13 +8,13 @@ const useStyles = makeStyles((theme) => ({
 		border: 'none',
 	},
 	header: {
-		padding: '0 2rem',
+		padding: '0 2rem 2.5rem',
 		fontSize: '1.2rem',
 		fontWeight: '600',
 		color: '#875CC0',
 	},
 	divider: {
-		margin: '1rem 0',
+		margin: '0.75rem 0',
 		backgroundColor: '#3B4148',
 	},
 	menuItem: {
