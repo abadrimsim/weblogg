@@ -7,6 +7,7 @@ import ContactScreen from './screens/ContactScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import AboutScreen from './screens/AboutScreen';
+import UserPostsScreen from './screens/UserPostsScreen';
 
 import './App.css';
 
@@ -20,6 +21,7 @@ const App = () => {
 					<Route path='/login' exact component={LoginScreen} />
 					<Route path='/register' exact component={RegisterScreen} />
 					<Route path='/about' exact component={AboutScreen} />
+					<Route path='/post' exact component={UserPostsScreen} />
 				</Grid>
 			</Grid>
 		</Router>
