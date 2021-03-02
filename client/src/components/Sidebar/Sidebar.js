@@ -5,10 +5,8 @@ import {
 	CardMedia,
 	List,
 	ListItem,
-	Grow,
-	Divider,
+	Container,
 } from '@material-ui/core';
-import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 
 import useStyles from './styles';
 
@@ -16,105 +14,106 @@ const Sidebar = () => {
 	const classes = useStyles();
 
 	return (
-		<Grow in style={{ transformOrigin: '0 0 0' }} {...{ timeout: 1000 }}>
-			<List
-				component='nav'
-				className={classes.root}
-				aria-label='mailbox folders'
+		<Container className={classes.root}>
+			<Typography
+				variant='body1'
+				component='p'
+				className={classes.sectionHeader}
 			>
-				<Typography className={classes.header}>Top Trending</Typography>
-				<TrendingUpIcon className={classes.icon} />
-				<ListItem button className={classes.listItem}>
+				Top Trending
+			</Typography>
+			<List component='nav' aria-label='Trending Posts'>
+				<ListItem button className={classes.item}>
 					<CardMedia
 						component='img'
-						className={classes.cardMedia}
-						image='https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG'
+						className={classes.media}
+						image='https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
 						// title={post.imageTitle}
 						title='10 Reasons Why I Love Coffee'
 					/>
 					<div>
-						<Typography component='h5' className={classes.title}>
+						<Typography variant='body1' component='p'>
 							10 Reasons Why I Love Coffee
 						</Typography>
-						<Typography variant='subtitle1' className={classes.subtitle}>
-							Jan 2, 2021
+						<Typography variant='subtitle1' component='p'>
+							Han Ji Pyeong
 						</Typography>
 					</div>
 				</ListItem>
-				<Divider light />
-				<ListItem button className={classes.listItem}>
+
+				<ListItem button className={classes.item}>
 					<CardMedia
 						component='img'
-						className={classes.cardMedia}
-						image='https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG'
+						className={classes.media}
+						image='https://images.pexels.com/photos/5530197/pexels-photo-5530197.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
 						// title={post.imageTitle}
 						title='10 Reasons Why I Love Coffee'
 					/>
 					<div>
-						<Typography component='h5' className={classes.title}>
+						<Typography variant='body1' component='p'>
 							10 Reasons Why I Love Coffee
 						</Typography>
-						<Typography variant='subtitle1' className={classes.subtitle}>
-							Jan 2, 2021
+						<Typography variant='subtitle1' component='p'>
+							Han Ji Pyeong
 						</Typography>
 					</div>
 				</ListItem>
-				<Divider light />
-				<ListItem button className={classes.listItem}>
+
+				<ListItem button className={classes.item}>
 					<CardMedia
 						component='img'
-						className={classes.cardMedia}
-						image='https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG'
+						className={classes.media}
+						image='https://images.pexels.com/photos/399161/pexels-photo-399161.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
 						// title={post.imageTitle}
 						title='10 Reasons Why I Love Coffee'
 					/>
 					<div>
-						<Typography component='h5' className={classes.title}>
+						<Typography variant='body1' component='p'>
 							10 Reasons Why I Love Coffee
 						</Typography>
-						<Typography variant='subtitle1' className={classes.subtitle}>
-							Jan 2, 2021
+						<Typography variant='subtitle1' component='p'>
+							Han Ji Pyeong
 						</Typography>
 					</div>
 				</ListItem>
-				<Divider light />
-				<ListItem button className={classes.listItem}>
+
+				<ListItem button className={classes.item}>
 					<CardMedia
 						component='img'
-						className={classes.cardMedia}
-						image='https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG'
+						className={classes.media}
+						image='https://images.pexels.com/photos/5530197/pexels-photo-5530197.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
 						// title={post.imageTitle}
 						title='10 Reasons Why I Love Coffee'
 					/>
 					<div>
-						<Typography component='h5' className={classes.title}>
+						<Typography variant='body1' component='p'>
 							10 Reasons Why I Love Coffee
 						</Typography>
-						<Typography variant='subtitle1' className={classes.subtitle}>
-							Jan 2, 2021
+						<Typography variant='subtitle1' component='p'>
+							Han Ji Pyeong
 						</Typography>
 					</div>
 				</ListItem>
-				<Divider light />
-				<ListItem button className={classes.listItem}>
+
+				<ListItem button className={classes.item}>
 					<CardMedia
 						component='img'
-						className={classes.cardMedia}
-						image='https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG'
+						className={classes.media}
+						image='https://images.pexels.com/photos/5530197/pexels-photo-5530197.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
 						// title={post.imageTitle}
 						title='10 Reasons Why I Love Coffee'
 					/>
 					<div>
-						<Typography component='h5' className={classes.title}>
+						<Typography variant='body1' component='p'>
 							10 Reasons Why I Love Coffee
 						</Typography>
-						<Typography variant='subtitle1' className={classes.subtitle}>
-							Jan 2, 2021
+						<Typography variant='subtitle1' component='p'>
+							Han Ji Pyeong
 						</Typography>
 					</div>
 				</ListItem>
 			</List>
-		</Grow>
+		</Container>
 
 		// <Grid container>
 

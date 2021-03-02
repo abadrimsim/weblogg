@@ -91,7 +91,12 @@ const Navbar = () => {
 					</List>
 				</Collapse>
 
-				<ListItem button className={classes.menuItem} component={Link} to='/'>
+				<ListItem
+					button
+					className={classes.menuItem}
+					component={Link}
+					to='/post'
+				>
 					<PersonOutlineOutlinedIcon className={classes.icon} />
 					<ListItemText primary='My Posts' />
 				</ListItem>

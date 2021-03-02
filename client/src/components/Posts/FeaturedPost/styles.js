@@ -2,12 +2,15 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
 	root: {
-		margin: '1.5rem auto',
-		padding: '0 1.25rem',
-		maxWidth: '80vw',
+		margin: '5.5rem 4rem 4rem',
+		boxShadow: 'none',
 	},
 	sectionHeader: {
-		margin: '5rem 0 1rem 1.5rem',
+		marginBottom: '1rem',
+	},
+	media: {
+		height: 500,
+		borderRadius: 15,
 	},
 });
 

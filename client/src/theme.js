@@ -8,13 +8,14 @@ let theme = createMuiTheme({
 		},
 	},
 	typography: {
-		fontFamily: "'Hind Siliguri', sans-serif",
+		fontFamily: "'Poppins', sans-serif",
 		h1: {
 			fontWeight: '600',
 			fontSize: '3rem',
 			color: '#272625',
 		},
 		h2: {
+			fontFamily: "'Lora', serif",
 			fontWeight: '600',
 			fontSize: '1.5rem',
 			color: '#272625',
@@ -25,12 +26,16 @@ let theme = createMuiTheme({
 			fontSize: '1.25rem',
 		},
 		h5: {
+			fontFamily: "'Lora', serif",
 			color: '#272625',
-			fontWeight: '600',
+			fontWeight: '700',
 		},
 		h6: {
-			color: '#272625',
-			fontWeight: '600',
+			fontFamily: "'Lora', serif",
+			// fontSize: '0.875rem',
+			// fontWeight: '500',
+			fontSize: '1rem',
+			fontWeight: '700',
 		},
 		body1: {
 			fontSize: '0.9rem',
@@ -39,7 +44,15 @@ let theme = createMuiTheme({
 		},
 		body2: {
 			color: 'rgba(0, 0, 0, 0.54)',
-			fontWeight: '600',
+			fontWeight: '500',
+		},
+		subtitle1: {
+			fontSize: '0.8rem',
+			color: '#78828C',
+		},
+		subtitle2: {
+			color: '#6E60D9',
+			fontSize: '0.8rem',
 		},
 		button: {
 			'&:hover,&:focus': {
@@ -48,50 +61,5 @@ let theme = createMuiTheme({
 		},
 	},
 });
-
-theme = {
-	...theme,
-	overrides: {
-		MuiGrid: {
-			root: {
-				backgroundColor: '#F2F5F9',
-			},
-		},
-		MuiList: {
-			padding: {
-				paddingTop: 0,
-				paddingBottom: 0,
-			},
-		},
-		MuiListItem: {
-			button: {
-				'&:hover,&:focus': {
-					color: '#989EAA',
-				},
-			},
-			gutters: {
-				paddingLeft: 0,
-			},
-		},
-		MuiAvatar: {
-			root: {
-				display: 'inline-block',
-			},
-		},
-		MuiButtonBase: {
-			root: {
-				'&:hover,&:focus': {
-					outline: 'none',
-					// color: '#e6ecf4',
-				},
-			},
-		},
-		MuiCardContent: {
-			root: {
-				textAlign: 'left',
-			},
-		},
-	},
-};
 
 export default theme;

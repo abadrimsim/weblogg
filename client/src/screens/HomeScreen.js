@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Divider } from '@material-ui/core';
 
 import Posts from '../components/Posts/Posts';
+import FeaturedPost from '../components/Posts/FeaturedPost/FeaturedPost';
 import Sidebar from '../components/Sidebar/Sidebar';
 import Loader from '../components/Loader/Loader';
 import Navbar from '../components/Navbar/Navbar';
@@ -48,13 +49,26 @@ const HomeScreen = () => {
 			<Grid item sm={2}>
 				<Navbar />
 			</Grid>
-			<Grid container direction='row' sm={10}>
-				<Grid container sm={8}>
+			<Grid container direction='column' sm={10}>
+				<Grid container direction='row'>
+					<Grid item sm={8}>
+						<FeaturedPost />
+					</Grid>
+					<Grid container direction='row' sm={4}>
+						<Grid item>
+							<Divider orientation='vertical' />
+						</Grid>
+						<Grid item>
+							<Sidebar />
+						</Grid>
+					</Grid>
+				</Grid>
+				<Grid item>
+					<Divider />
+				</Grid>
+				<Grid item>
 					{/* {renderPost()} */}
 					<Posts />
-				</Grid>
-				<Grid item sm={4}>
-					<Sidebar />
 				</Grid>
 			</Grid>
 		</Grid>
