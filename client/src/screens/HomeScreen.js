@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { Grid, Divider } from '@material-ui/core';
+import { Grid, Divider, Typography } from '@material-ui/core';
 
 import Posts from '../components/Posts/Posts';
 import FeaturedPost from '../components/Posts/FeaturedPost/FeaturedPost';
@@ -9,7 +9,10 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import Loader from '../components/Loader/Loader';
 import Navbar from '../components/Navbar/Navbar';
 
+import useStyles from '../components/Posts/styles';
+
 const HomeScreen = () => {
+	const classes = useStyles();
 	const [posts, setPosts] = useState([]);
 
 	const url = 'http://localhost:5000/api/post';
@@ -67,6 +70,13 @@ const HomeScreen = () => {
 					<Divider />
 				</Grid>
 				<Grid item>
+					<Typography
+						variant='body1'
+						component='p'
+						className={classes.sectionHeader}
+					>
+						Recent Posts
+					</Typography>
 					{/* {renderPost()} */}
 					<Posts />
 				</Grid>

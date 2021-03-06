@@ -32,11 +32,11 @@ const Sidebar = () => {
 						title='10 Reasons Why I Love Coffee'
 					/>
 					<div>
+						<Typography variant='subtitle2' component='p'>
+							Lifestyle
+						</Typography>
 						<Typography variant='body1' component='p'>
 							10 Reasons Why I Love Coffee
-						</Typography>
-						<Typography variant='subtitle1' component='p'>
-							Han Ji Pyeong
 						</Typography>
 					</div>
 				</ListItem>
@@ -53,8 +53,8 @@ const Sidebar = () => {
 						<Typography variant='body1' component='p'>
 							10 Reasons Why I Love Coffee
 						</Typography>
-						<Typography variant='subtitle1' component='p'>
-							Han Ji Pyeong
+						<Typography variant='subtitle2' component='p'>
+							Lifestyle
 						</Typography>
 					</div>
 				</ListItem>
@@ -71,8 +71,8 @@ const Sidebar = () => {
 						<Typography variant='body1' component='p'>
 							10 Reasons Why I Love Coffee
 						</Typography>
-						<Typography variant='subtitle1' component='p'>
-							Han Ji Pyeong
+						<Typography variant='subtitle2' component='p'>
+							Lifestyle
 						</Typography>
 					</div>
 				</ListItem>
@@ -89,8 +89,8 @@ const Sidebar = () => {
 						<Typography variant='body1' component='p'>
 							10 Reasons Why I Love Coffee
 						</Typography>
-						<Typography variant='subtitle1' component='p'>
-							Han Ji Pyeong
+						<Typography variant='subtitle2' component='p'>
+							Technology
 						</Typography>
 					</div>
 				</ListItem>
@@ -107,8 +107,8 @@ const Sidebar = () => {
 						<Typography variant='body1' component='p'>
 							10 Reasons Why I Love Coffee
 						</Typography>
-						<Typography variant='subtitle1' component='p'>
-							Han Ji Pyeong
+						<Typography variant='subtitle2' component='p'>
+							Lifestyle
 						</Typography>
 					</div>
 				</ListItem>

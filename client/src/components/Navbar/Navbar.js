@@ -13,13 +13,15 @@ import {
 	Divider,
 	CardMedia,
 } from '@material-ui/core';
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import CategoryOutlinedIcon from '@material-ui/icons/CategoryOutlined';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-import MailOutlinedIcon from '@material-ui/icons/MailOutlined';
-import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
+import {
+	HomeOutlined,
+	CategoryOutlined,
+	ArrowDropDown,
+	ArrowDropUp,
+	InfoOutlined,
+	MailOutlined,
+	EditOutlined,
+} from '@material-ui/icons';
 
 import ContactDialog from '../Contact/Contact';
 
@@ -67,7 +69,7 @@ const Navbar = () => {
 
 			<List>
 				<ListItem button className={classes.menuItem} component={Link} to='/'>
-					<HomeOutlinedIcon className={classes.icon} />
+					<HomeOutlined className={classes.icon} />
 					<ListItemText primary='Home' />
 				</ListItem>
 
@@ -76,9 +78,9 @@ const Navbar = () => {
 					className={classes.menuItem}
 					onClick={handleClickCategories}
 				>
-					<CategoryOutlinedIcon className={classes.icon} />
+					<CategoryOutlined className={classes.icon} />
 					<ListItemText primary='Categories' />
-					{openCategories ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+					{openCategories ? <ArrowDropDown /> : <ArrowDropUp />}
 				</ListItem>
 
 				<Collapse in={openCategories} timeout='auto' unmountOnExit>
@@ -97,7 +99,7 @@ const Navbar = () => {
 					component={Link}
 					to='/post'
 				>
-					<PersonOutlineOutlinedIcon className={classes.icon} />
+					<EditOutlined className={classes.icon} />
 					<ListItemText primary='My Posts' />
 				</ListItem>
 
@@ -109,7 +111,7 @@ const Navbar = () => {
 					component={Link}
 					to='/about'
 				>
-					<InfoOutlinedIcon className={classes.icon} />
+					<InfoOutlined className={classes.icon} />
 					<ListItemText primary='About' />
 				</ListItem>
 
@@ -119,7 +121,7 @@ const Navbar = () => {
 					component={Link}
 					onClick={handleClickContact}
 				>
-					<MailOutlinedIcon className={classes.icon} />
+					<MailOutlined className={classes.icon} />
 					<ListItemText primary='Contact' />
 					<ContactDialog
 						openContactDialog={openContactDialog}
