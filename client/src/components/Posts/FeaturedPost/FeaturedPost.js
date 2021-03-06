@@ -24,10 +24,10 @@ const FeaturedPost = () => {
 			<CardActionArea>
 				<CardMedia
 					className={classes.media}
-					image='https://images.pexels.com/photos/6469/red-hands-woman-creative.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+					image='https://images.pexels.com/photos/34601/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
 					title='My First Blog Website Using the MERN Stack'
 				/>
-				<CardContent>
+				<CardContent className={classes.content}>
 					<Typography gutterBottom variant='h5' component='h2'>
 						My First Blog Website Using the MERN Stack
 					</Typography>

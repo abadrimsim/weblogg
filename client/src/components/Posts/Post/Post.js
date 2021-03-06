@@ -3,6 +3,7 @@ import React from 'react';
 
 import {
 	Avatar,
+	Container,
 	Card,
 	CardActionArea,
 	CardContent,
@@ -43,29 +44,18 @@ const Post = () => {
 					title='My First Blog Website Using the MERN Stack'
 				/>
 
-				<CardContent>
+				<CardContent className={classes.content}>
+					<Typography gutterBottom variant='subtitle2' component='p'>
+						Technology
+					</Typography>
 					<Typography gutterBottom variant='h6' component='h2'>
 						My First Blog Website Using the MERN Stack
 					</Typography>
-					<Typography variant='subtitle2' component='p'>
-						Technology
-					</Typography>
+
 					<Typography variant='body2' color='textSecondary' component='p'>
 						Lorem Ipsum has been the industry's standard dummy text ever since
 						the 1500s..
 					</Typography>
-
-					{/* <Avatar
-						alt='Han Ji-pyeong'
-						src='https://pbs.twimg.com/profile_images/1336902902661595136/zSqCWzr5.jpg'
-						className={classes.userAvatar}
-					/>
-					<Typography variant='h5' component='p' className={classes.userName}>
-						Han Ji Pyeong
-					</Typography>
-					<Typography variant='h5' component='p' className={classes.date}>
-						Jan 2, 2021
-					</Typography> */}
 				</CardContent>
 			</CardActionArea>
 		</Card>

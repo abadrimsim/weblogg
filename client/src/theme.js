@@ -4,7 +4,7 @@ import './fonts/fonts.css';
 let theme = createMuiTheme({
 	palette: {
 		background: {
-			paper: '#F2F5F9',
+			paper: '#F5F6FA',
 		},
 	},
 	typography: {
@@ -32,8 +32,6 @@ let theme = createMuiTheme({
 		},
 		h6: {
 			fontFamily: "'Lora', serif",
-			// fontSize: '0.875rem',
-			// fontWeight: '500',
 			fontSize: '1rem',
 			fontWeight: '700',
 		},
@@ -43,7 +41,6 @@ let theme = createMuiTheme({
 			lineHeight: 1.5,
 		},
 		body2: {
-			color: 'rgba(0, 0, 0, 0.54)',
 			fontWeight: '500',
 		},
 		subtitle1: {
@@ -52,12 +49,9 @@ let theme = createMuiTheme({
 		},
 		subtitle2: {
 			color: '#6E60D9',
-			fontSize: '0.8rem',
-		},
-		button: {
-			'&:hover,&:focus': {
-				outline: 'none',
-			},
+			fontSize: '0.7rem',
+			fontWeight: '600',
+			textTransform: 'uppercase',
 		},
 	},
 });
